@@ -3,6 +3,7 @@ import AddCircleRoundedIcon from '@mui/icons-material/AddCircleRounded';
 import { departments } from "../store/employeeStore";
 import { employeeType } from "../types";
 import { ChangeEvent, useState } from "react";
+import axios from "axios";
 
 
 export default function AddEmployeeComponent ({onEmployeChange}:{onEmployeChange:(data:employeeType)=>void}) {
@@ -10,8 +11,12 @@ export default function AddEmployeeComponent ({onEmployeChange}:{onEmployeChange
   const [info, setInfo] =  useState<employeeType>({
     employeeName: "",
     employeeDepartment: "",
-    employeeSalary: ""
+    employeeSalary: "",
+    _id: ""
+
   })
+
+
 
   const handleTextChange = (event: ChangeEvent<HTMLInputElement> ) => {
     setInfo({ ...info, [event.target.name]: event.target.value });
@@ -29,6 +34,7 @@ export default function AddEmployeeComponent ({onEmployeChange}:{onEmployeChange
       employeeName: "",
       employeeDepartment: "",
       employeeSalary: "",
+      _id: ""
     });
   };
 
